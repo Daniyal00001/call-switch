@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp docs/index.html docs/404.html",
+    "build": "vite build && cp docs/index.html docs/404.html && cp docs/index.html index.html && cp docs/404.html 404.html && rm -rf assets && mkdir -p assets && cp -R docs/assets/. assets/ && cp docs/favicon.svg favicon.svg && cp docs/callswitch-dashboard.png callswitch-dashboard.png",
     "preview": "vite preview"
   },
   "dependencies": {
