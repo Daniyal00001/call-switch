@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Arrow, FeatureIcon } from "../components/Icons";
 import { audiences, features, integrations } from "../data";
 
-const HERO = "/callswitch-dashboard.png";
+const HERO = `${import.meta.env.BASE_URL}callswitch-dashboard.png`;
 
 function Wave({ fill = "#f7f3f1", flip = false }) {
   return (
