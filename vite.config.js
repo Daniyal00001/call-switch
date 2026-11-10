@@ -7,16 +7,15 @@ function serveSourceEntry() {
     apply: "serve",
     transformIndexHtml(html) {
       return html
-        .replace(/<script type="module" crossorigin src="\/call-switch\/assets\/[^"]+"><\/script>\s*/g, "")
-        .replace(/<link rel="stylesheet" crossorigin href="\/call-switch\/assets\/[^"]+">\s*/g, "")
-        .replace('href="/call-switch/favicon.svg"', 'href="/favicon.svg"')
+        .replace(/<script type="module" crossorigin src="\/assets\/[^"]+"><\/script>\s*/g, "")
+        .replace(/<link rel="stylesheet" crossorigin href="\/assets\/[^"]+">\s*/g, "")
         .replace("</body>", '  <script type="module" src="/src/main.jsx"></script>\n  </body>');
     },
   };
 }
 
-export default defineConfig(({ command }) => ({
-  base: command === "build" ? "/call-switch/" : "/",
+export default defineConfig({
+  base: "/",
   plugins: [react(), serveSourceEntry()],
   build: {
     outDir: "docs",
@@ -25,4 +24,4 @@ export default defineConfig(({ command }) => ({
     port: 5173,
     host: "127.0.0.1",
   },
-}));
+});
